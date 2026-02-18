@@ -1,1 +1,456 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>MyProduct | Resmi Site</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f6ff;
+    color:#222;
+}
+
+/* NAVBAR */
+
+header{
+    background:linear-gradient(90deg,#4b6cb7,#8c62aa);
+    position:fixed;
+    width:100%;
+    z-index:1000;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+}
+
+.logo{
+    color:#fff;
+    font-size:26px;
+    font-weight:700;
+}
+
+.menu{
+    list-style:none;
+    display:flex;
+}
+
+.menu li{
+    margin-left:25px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+}
+
+.menu a:hover{
+    color:#ffd369;
+}
+
+.hamburger{
+    display:none;
+    font-size:26px;
+    color:#fff;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:52px;
+}
+
+.hero p{
+    margin:15px 0;
+}
+
+.btn{
+    background:#fff;
+    color:#6a11cb;
+    padding:12px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:15px;
+    font-weight:600;
+}
+
+.btn:hover{
+    background:#ffd369;
+}
+
+/* SLIDER */
+
+.slider{
+    margin:60px auto;
+    max-width:900px;
+    position:relative;
+}
+
+.slide{
+    display:none;
+}
+
+.slide img{
+    width:100%;
+    border-radius:15px;
+}
+
+/* PRODUCTS */
+
+.products{
+    padding:60px 40px;
+    text-align:center;
+}
+
+.products h2{
+    margin-bottom:30px;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.product{
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-8px);
+}
+
+.product img{
+    width:100%;
+    border-radius:10px;
+}
+
+.product h3{
+    margin:10px 0;
+}
+
+/* PRICING */
+
+.pricing{
+    background:#eef1ff;
+    padding:60px 40px;
+    text-align:center;
+}
+
+.pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.plan{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.plan h3{
+    color:#2575fc;
+}
+
+.price{
+    font-size:32px;
+    margin:15px 0;
+}
+
+/* ABOUT */
+
+.about{
+    padding:60px 40px;
+    text-align:center;
+}
+
+/* CONTACT */
+
+.contact{
+    background:#4b6cb7;
+    color:#fff;
+    padding:60px 40px;
+    text-align:center;
+}
+
+.contact form{
+    max-width:500px;
+    margin:auto;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+}
+
+.contact button{
+    width:100%;
+    background:#ffd369;
+    border:none;
+    padding:12px;
+    border-radius:25px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#222;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .menu{
+        position:absolute;
+        top:70px;
+        right:0;
+        background:#4b6cb7;
+        width:100%;
+        flex-direction:column;
+        display:none;
+    }
+
+    .menu li{
+        margin:15px 0;
+        text-align:center;
+    }
+
+    .hamburger{
+        display:block;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">MyProduct</div>
+
+        <ul class="menu" id="menu">
+            <li><a href="#home">Anasayfa</a></li>
+            <li><a href="#products">Ürünler</a></li>
+            <li><a href="#pricing">Fiyatlar</a></li>
+            <li><a href="#about">Hakkımızda</a></li>
+            <li><a href="#contact">İletişim</a></li>
+        </ul>
+
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div>
+        <h1>Yeni Nesil Ürün Deneyimi</h1>
+        <p>Güçlü, Hızlı, Modern</p>
+        <a href="#products" class="btn">Ürünlere Bak</a>
+    </div>
+</section>
+
+<!-- SLIDER -->
+
+<div class="slider">
+    <div class="slide">
+        <img src="https://picsum.photos/900/400?1">
+    </div>
+    <div class="slide">
+        <img src="https://picsum.photos/900/400?2">
+    </div>
+    <div class="slide">
+        <img src="https://picsum.photos/900/400?3">
+    </div>
+</div>
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+<h2>Ürünlerimiz</h2>
+
+<div class="product-grid">
+
+<div class="product">
+<img src="https://picsum.photos/300/200?4">
+<h3>Ürün 1</h3>
+<p>Yüksek kalite</p>
+</div>
+
+<div class="product">
+<img src="https://picsum.photos/300/200?5">
+<h3>Ürün 2</h3>
+<p>Profesyonel tasarım</p>
+</div>
+
+<div class="product">
+<img src="https://picsum.photos/300/200?6">
+<h3>Ürün 3</h3>
+<p>Hızlı performans</p>
+</div>
+
+</div>
+</section>
+
+<!-- PRICING -->
+
+<section class="pricing" id="pricing">
+
+<h2>Paketler</h2>
+
+<div class="pricing-grid">
+
+<div class="plan">
+<h3>Basic</h3>
+<div class="price">₺99</div>
+<p>Temel özellikler</p>
+<a class="btn">Satın Al</a>
+</div>
+
+<div class="plan">
+<h3>Pro</h3>
+<div class="price">₺199</div>
+<p>Tam paket</p>
+<a class="btn">Satın Al</a>
+</div>
+
+<div class="plan">
+<h3>Premium</h3>
+<div class="price">₺299</div>
+<p>VIP destek</p>
+<a class="btn">Satın Al</a>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<h2>Hakkımızda</h2>
+<p>
+Modern web çözümleri geliştiren, müşteri memnuniyetini ön planda tutan bir ekibiz.
+</p>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<h2>İletişim</h2>
+
+<form onsubmit="sendForm(event)">
+<input type="text" placeholder="Adınız" required>
+<input type="email" placeholder="Email" required>
+<textarea placeholder="Mesajınız" required></textarea>
+<button>Gönder</button>
+</form>
+
+<p id="formResult"></p>
+
+</section>
+
+<footer>
+© 2026 MyProduct | Tüm Hakları Saklıdır
+</footer>
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+    let menu = document.getElementById("menu");
+
+    if(menu.style.display=="flex"){
+        menu.style.display="none";
+    }else{
+        menu.style.display="flex";
+    }
+}
+
+/* SLIDER */
+
+let index = 0;
+showSlide();
+
+function showSlide(){
+
+    let slides = document.getElementsByClassName("slide");
+
+    for(let i=0;i<slides.length;i++){
+        slides[i].style.display="none";
+    }
+
+    index++;
+
+    if(index>slides.length){
+        index=1;
+    }
+
+    slides[index-1].style.display="block";
+
+    setTimeout(showSlide,3000);
+}
+
+/* FORM */
+
+function sendForm(e){
+    e.preventDefault();
+
+    document.getElementById("formResult").innerText =
+    "Mesajınız başarıyla gönderildi ✔️";
+}
+
+</script>
+
+</body>
+</html>
