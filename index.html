@@ -465,3 +465,48 @@ Sunucuya Katıl
 
 </body>
 </html>
+<!-- MUSIC TOGGLE BUTTON -->
+<style>
+.music-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+z-index:1000;
+background:#00f7ff;
+color:#000;
+border:none;
+border-radius:50px;
+padding:12px 22px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 0 20px #00f7ff;
+transition:.3s;
+}
+
+.music-btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px #00f7ff;
+}
+</style>
+
+<button class="music-btn" onclick="toggleMusic()">▶️ Müzik Aç</button>
+
+<audio id="bgMusic">
+  <source src="tokyo-drift.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.querySelector(".music-btn");
+
+function toggleMusic(){
+  if(music.paused){
+    music.play();
+    btn.textContent = "⏸️ Müzik Kapat";
+  }else{
+    music.pause();
+    btn.textContent = "▶️ Müzik Aç";
+  }
+}
+</script>
