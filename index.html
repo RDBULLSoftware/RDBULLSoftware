@@ -465,3 +465,42 @@ Sunucuya Katıl
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Müzik Aç / Kapat</title>
+  <style>
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<button onclick="toggleMusic()">▶️ Müziği Aç</button>
+
+<audio id="music">
+  <source src="tokyo-drift.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("music");
+  const button = document.querySelector("button");
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      button.textContent = "⏸️ Müziği Kapat";
+    } else {
+      music.pause();
+      button.textContent = "▶️ Müziği Aç";
+    }
+  }
+</script>
+
+</body>
+</html>
